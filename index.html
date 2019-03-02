@@ -5,6 +5,7 @@
   <title>Word Guess Game</title>
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/javascript/game.js"></script>
 </head>
 
 <body>
@@ -15,10 +16,10 @@
         <!-- a single, centered column for the game title -->
         <div class="col-12">
           <!-- (create title, set id=gameTitle so can be hidden onStart) -->
-          <h2 id="gameTitle">Word Guess Game v1.0</h2><br>
+          <h2 id="game-title">Word Guess Game v1.0</h2><br>
           <!-- (1. create, set id=scoreBoard so can appear onStart) -->
           <!-- (2. create, set id=plyrWins so can update score) -->
-          <h2 class="scoreBoard">PLAYER WINS: <span id="plyrWins"></span>
+          <h2 class="scoreBoard">PLAYER WINS: <span id="player-wins"></span>
           </h2>
         </div>
       </div>
@@ -29,29 +30,30 @@
     <!-- create greeting & set id so js can hide the message onStart -->
     <div class="row">
       <div class="col-12">
-        <h2 id="readyGo">Welcome - Press Any Key to Get Started!</h2>
+        <h2 id="welcome-msg">Welcome - Press Any Key to Get Started!</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-6">
         <!-- create dynamic msg ("Got one!" or "Ooof sorry - no dice.") -->
-        <h2 id="guessMessage"></h2>
+        <h2 id="guess-result"></h2>
       </div>
       <div class="col-6">
         <!-- create dynamic instruction ("Guess again!" or "Press any key to play again"(or might use a game-over alert instead)) -->
-        <h2 id="guessInstruct"></h2>
+        <h2 id="play-again"></h2>
       </div>
     </div>
 
     <div class="row">
       <div class="col-12">
-        <!-- create placeholder for guessWord & set id so js can display the message onStart/ hide onFinish -->
-        <h1 id="guessWord"></h1>
+        <!-- create placeholder for the word to be guessed & assign id so js can display onStart/ hide onFinish -->
+        <h1 id="guess-word"></h1>
         <br>
         <!-- Create dynamic guesses-remaining/letters-guessed status -->
-        <h2>Guesses Remaining: <span id="guessRemain"></span></h2>
+        <h2>Letters Already Guessed: <span id="guessed-already"></span></h2>
         <br>
-        <h2>Letters Already Guessed: <span id="guessAlready"></span></h2>
+        <h2>Guesses Remaining: <span id="guesses-remaining"></span></h2>       
+        
       </div>
     </div>
 
@@ -60,6 +62,7 @@
 
   </footer>
   <!-- *****link to game.js**** -->
+  
 </body>
 
 </html>
