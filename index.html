@@ -12,48 +12,49 @@
   <header>
     <!--make full-width/fixed/sticky so gameTitle/scoreBoard always visible-->
     <div class="container-fluid">
-      <div class="row">
-        <!-- a single, centered column for the game title -->
-        <div class="col-12">
+      <div class="wrapper">
+        <div class="flex-container about">
           <!-- (create title, set id=gameTitle so can be hidden onStart) -->
-          <h2 id="game-title">Word Guess Game v1.0</h2><br>
+          <div id="title-block" class="flex-item title">
+            <h1 id="game-title">Word Guess Game v1.0</h1><br>
+            <h2>Developed by Ford Crosby
+              </h2>          
+          </div>
           <!-- (1. create, set id=scoreBoard so can appear onStart) -->
           <!-- (2. create, set id=plyrWins so can update score) -->
-          <h2 class="scoreBoard">PLAYER WINS: <span id="player-wins"></span>
-          </h2>
+          <div class="flex-item scoreBoard">
+            <h2>PLAYER WINS: </h2><br>
+              <h2 id="player-wins">0</h2>
+          </div>          
         </div>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <!-- create greeting & set id so js can hide the message onStart -->
-    <div class="row">
-      <div class="col-12">
+    <!-- create greeting & set id so js can hide the message onStart and create dynamic msg ("Got one!" or "Ooof sorry - no dice." -->
+    <div class="wrapper">
+      <div class="message-block">
         <h2 id="welcome-msg">Welcome - Press Any Key to Get Started!</h2>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6">
-        <!-- create dynamic msg ("Got one!" or "Ooof sorry - no dice.") -->
-        <h2 id="guess-result"></h2>
+    
+    <div class="flex-container game-area">
+      <div class="flex-item side-already">
+        <!-- Create dynamic letters-guessed list -->
+        <h2>Letters Already Guessed: </h2>
+        <hr>
+        <h2 id="guessed-already">None yet</h2>
       </div>
-      <div class="col-6">
-        <!-- create dynamic instruction ("Guess again!" or "Press any key to play again"(or might use a game-over alert instead)) -->
-        <h2 id="play-again"></h2>
+      <!-- create placeholder for the word to be guessed & assign id so js can display onStart/ hide onFinish -->
+      <div class="flex-item game-center">
+          <h1 id="guess-word">???</h1>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12">
-        <!-- create placeholder for the word to be guessed & assign id so js can display onStart/ hide onFinish -->
-        <h1 id="guess-word"></h1>
-        <br>
-        <!-- Create dynamic guesses-remaining/letters-guessed status -->
-        <h2>Letters Already Guessed: <span id="guessed-already"></span></h2>
-        <br>
-        <h2>Guesses Remaining: <span id="guesses-remaining"></span></h2>       
-        
+      
+      <div class="flex-item side-remaining">
+        <h2>Guesses Remaining: </h2>
+        <hr>
+        <h2 id="guesses-remaining">?</h2>
       </div>
     </div>
 

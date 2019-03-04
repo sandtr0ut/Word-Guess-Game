@@ -7,7 +7,7 @@
 var foodList = ["appetizer", "apple pie", "bake", "baked Alaska", "baking soda", "banana split", "basil", "beef", "BLT", "Bundt pan", "cheese", "corn", "crepe", "doughnuts", "egg nog", "fork", "freeze", "fruit salad", "grape", "KFC", "lemon zester", "mac and cheese", "McDonalds", "melt", "muffin tin", "pear", "poach", "potato chips", "produce", "rolling pin"];
 
 // Create variables to hold references to html insertion points
-var gameTitle = document.getElementById("game-title");
+var titleBlock = document.getElementById("title-block");
 var playerWins = document.getElementById("player-wins");
 var welcomeMsg = document.getElementById("welcome-msg");
 var guessResultMsg = document.getElementById("guess-result");
@@ -27,9 +27,11 @@ for (var i = 0; i < wordChoice.length; i++) {
 }
 var remainingLetters = wordChoice.length;
 
-// while (remainingLetters > 0) {
-//   guessWord.textContent = wordLetters.join(" ");
-// }
+while (remainingLetters > 0) {
+  guessWord.textContent = wordLetters.join(" ");
+  
+  
+}
 
 console.log(wordLetters.join(" "));
 console.log(wordChoice);
