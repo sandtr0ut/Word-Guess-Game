@@ -5,7 +5,7 @@
   <title>Word Guess Game</title>
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/javascript/game.js"></script>
+  
 </head>
 
 <body>
@@ -35,7 +35,8 @@
     <!-- create greeting & set id so js can hide the message onStart and create dynamic msg ("Got one!" or "Ooof sorry - no dice." -->
     <div class="wrapper">
       <div class="message-block">
-        <h2 id="welcome-msg">Welcome - Press Any Key to Get Started!</h2>
+        <h2 id="welcome-msg">Welcome - Press Any Key to Get Started!</h2><br>
+        <h2 id="add-msg">-</h2>
       </div>
     </div>
     
@@ -44,7 +45,7 @@
         <!-- Create dynamic letters-guessed list -->
         <h2>Letters Already Guessed: </h2>
         <hr>
-        <h2 id="guessed-already">None yet</h2>
+        <h2 id="guessed-already"><N> </N>one yet</h2>
       </div>
       <!-- create placeholder for the word to be guessed & assign id so js can display onStart/ hide onFinish -->
       <div class="flex-item game-center">
@@ -63,7 +64,7 @@
 
   </footer>
   <!-- *****link to game.js**** -->
-  
+  <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>

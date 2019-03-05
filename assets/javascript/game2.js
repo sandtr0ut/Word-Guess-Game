@@ -75,3 +75,61 @@ document.onkeyup = function (event) {
       guessWordText.innerHTML(answerArray.join(" "));
       
     }
+  
+  
+
+
+
+
+
+
+
+
+
+// quick functionality test
+  // console.log(answerArray.join(" "));
+  // console.log(word);
+  // console.log(remainingLetters);
+
+//while there are letters yet to be guessed
+// while (remainingLetters > 0) {
+  
+  
+  //display progress at guessWordText (answerArray is the answer array)
+  // var progressBlanks = answerArray.join(" ");
+  // guessWordText.innerHTML = progressBlanks;
+  
+  //store the letter that is guessed
+  // var guessLetter = event.key;
+  
+  // update guessWordText
+
+// for (var j = 0; j < word.length; j++) {
+//   // if letter guessed is in the word,
+//   // ...at that index location
+//   if (word[j] === guessLetter) {
+//     // update the answer array with the letter they guessed
+//     answerArray[j] = guessLetter;
+//     //subtract one from remaining letters
+//     remainingLetters--;  
+
+//   }
+
+// }
+  
+// }
+
+// //let player know the word and say congrats
+// alert(answerArray.join(" "));
+// alert("Good Job!  The answer was " + word);
+
+
+
+
+
+
+
+
+// while (remainingLetters > 0) {
+//   guessWord.textContent = answerArray.join(" ");
+// }
