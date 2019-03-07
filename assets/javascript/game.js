@@ -7,7 +7,7 @@ window.onload = function () {
 var words = ["appetizer", "apple pie", "bake", "baked Alaska", "baking soda", "banana split", "basil", "beef", "BLT", "Bundt pan", "cheese", "corn", "crepe", "doughnuts", "egg nog", "fork", "freeze", "fruit salad", "grape", "KFC", "lemon zester", "mac and cheese", "McDonalds", "melt", "muffin tin", "pear", "poach", "potato chips", "produce", "rolling pin"];
 
 //create array for all letters in the alphabet
-// var allowedInput = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var allowedInput = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 // Create variables to hold references to html insertion points
 var titleBlock = document.getElementById("title-block");
@@ -22,20 +22,25 @@ var guessesRemainingCount = document.getElementById("guesses-remaining");
 
 //other global variables
 var wordLetters;
-var matchedLetters;
-var alreadyGuessed;
+var matchedLetters = [];
+var wordLetters = [];
+var alreadyGuessed =[];
 var guessesRemaining = 0;
 var totalGuesses = 0;
 var playerWins = 0;
 var letterGuessed = null;
-var word = null;
+var word = "";
 
 
 //game setup on page load
 function setupGame () {
   //computer chooses a word at random from the word list array [word = word]
-  var word = words[Math.floor(Math.random() * words.length)];
+  var index = Math.floor(Math.random() * words.length);
+  word = words[index];
   wordLetters = word.split("");
+  console.log(wordLetters);
+
+  console.log(word);
   
   displayWord();
   
@@ -44,16 +49,16 @@ function setupGame () {
 
 //runs when player selects a letter
 
-function statusUpdate(letter) {
+function statusUpdate(letterGuessed) {
   if (guessesRemaining === 0) {
     restartGame();
     
   } else {
     //identify incorrect guesses and trigger function to display
-    updateGuesses(letter);
+    updateGuesses(letterGuessed);
     
     //identify correct guesses and trigger function to display
-    updateMatchedLetters(letter);
+    updateMatchedLetters(letterGuessed);
     
     //show on-screen results of player guess
     displayWord();
@@ -65,21 +70,23 @@ function statusUpdate(letter) {
   }
 }
 //if player guesses wrong
-function updateGuesses(letter) {
-  if ((alreadyGuessed.indexOf(letter) === -1) &&
-     (wordLetters.indexOf(letter) === -1)) {
+function updateGuesses(letterGuessed) {
+  if ((alreadyGuessed.indexOf(letterGuessed) === -1) &&
+     (wordLetters.indexOf(letterGuessed) === -1)) {
     
       //add to alreadyGuessed array
-      alreadyGuessed.push(letter);
+      alreadyGuessed.push(letterGuessed);
       
       //decrease guessesRemaining by 1
-      guessesRemaining--;
-      
-      //update page
-      guessesRemainingCount.innerHTML = guessesRemaining;
-      alreadyGuessedText.innerHTML = alreadyGuessed.join(", ");
+      guessesRemaining--;      
     
   }
+  //update page
+  guessesRemainingCount.innerHTML = guessesRemaining;
+  alreadyGuessedText.innerHTML = alreadyGuessed;
+  console.log(guessesRemaining);
+  console.log(alreadyGuessed);
+  // alreadyGuessedText.innerHTML = alreadyGuessed.join(", ");
   }
   
   //function to set the total number of guesses the player gets
@@ -92,11 +99,11 @@ function updateGuesses(letter) {
   }
   
   // if the player guesses correctly
-  function updateMatchedLetters(letter) {
+  function updateMatchedLetters(letterGuessed) {
     //run through wordLetters array
     for (var i = 0; i < wordLetters.length; i++) {
       // If the guessed letter is in the solution, and it has yet to be guessed
-      if ((letter === wordLetters[i]) && (matchedLetters.indexOf(letter) === -1)) {
+      if ((letter === wordLetters[i]) && (matchedLetters.indexOf(letterGuessed) === -1)) {
         // Push letter into matchedLetters array.
         matchedLetters.push(letter);
       }
@@ -132,7 +139,7 @@ function restartGame() {
   alreadyGuessed = [];
   guessesRemaining = 0;
   totalGuesses = 0;
-  letterGuessed = null;
+  letterGuessed = "";
   setupGame();
   displayWord();  
 }
@@ -175,22 +182,24 @@ return false;
     //listen for keyup, check if it is a letter, convert to lower case, and store it
     document.onkeyup = function (event) {
       letterGuessed = event.key.toLowerCase();
-      if (allowedInput.includes(letterGuessed)) {
+      if (allowedInput.indexOf(letterGuessed) !== -1) {
+      console.log(word); 
+      console.log(letterGuessed);
+      console.log(guessesRemaining);
         
         //update the welcome message and instructions
         changeMsgText.innerHTML = "SO IT BEGINS...challenge word selected";
         addMsgText.innerHTML = "Select a letter!";
         
         
-        var test = "you pressed a letter";
-        console.log(test);
-      }else {
-        var test = "I don't know what the fuck you pressed";
-        console.log(test);
-        
-        alert("Select letters only please!")
+        // var test = "you pressed a letter";
+        // console.log(test);
       }
-        console.log(letterGuessed);
+      else {
+                
+        alert("Select letters only please!");
+      }
+        // console.log(letterGuessed);
         
       }
     
