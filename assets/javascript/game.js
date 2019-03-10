@@ -63,6 +63,7 @@ var letterGuessed = null; //player's guess (key-pressed)
 
 
 
+
 // Set game to 'ready' state when player presses first key ||
 // or when game ends (Define gameReady function)
 function gameReady() {
@@ -73,15 +74,7 @@ function gameReady() {
   //now we need to split the word up into its component letters
   wordLetters = word.split("");
   
-  //trying something here
-  
-  // var reg = /\s/;
-  // wordSpaces = word.match(reg);
-  // spacePlace = wordSpaces.index;
-  
-  spaceIndex = word.indexOf(" ");
-  
-  
+   
   //call the function that displays the word to be guessed with underscores 
   //(call displayWord function)*
     displayWord();
@@ -151,6 +144,9 @@ function updateMatchedLetters(letter) {
        //then push letter into matchedLetters array
        matchedLetters.push(letter);
      }
+     if (matchedLetters.indexOf(" ") !== -1) {
+       matchedLetters.push(" ");
+     }
     }
   }
 
@@ -159,12 +155,11 @@ function updateMatchedLetters(letter) {
 function displayWord() {
   //nothing at first (empty string)
   var wordDisplay = "";
-  var wordSpace = " ";
-  
+    
   //loop through wordLetters array
   for (var i = 0; i < wordLetters.length; i++) {
     
-    if (wordLetters.indexOf(" ") !== -1) {
+    // if (wordLetters.indexOf(" ") !== -1) {}
       
       //if the wordLetter has been guessed, display it...
     if (matchedLetters.indexOf(wordLetters[i]) !== -1) {
@@ -176,14 +171,13 @@ function displayWord() {
       wordDisplay += "&nbsp;_&nbsp;";
       
     }
-    //TRYING TO DEAL WITH THE SPACE
-    wordDisplay = wordDisplay + " " + wordLetters[spaceIndex];
-  }
-  }
+   }
   //update page with the new wordDisplay string
+    
   guessWordText.innerHTML = wordDisplay;
+  
   console.log(wordLetters);
-  console.log(spaceIndex);
+  console.log(wordDisplay);
  
   
 }
@@ -264,7 +258,7 @@ document.onkeyup = function (event) {
 
 }  
 
-  // console.log(word);
+  console.log(word);
   // console.log(wordLetters);
   // console.log(letterGuessed);
 }
