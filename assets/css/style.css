@@ -15,8 +15,10 @@ html {
 }
 
 body {
-  display: inline-block;
+  /* display: inline-block; */
   margin: 0;
+  background-image: url("../images/lobstaBoilOpt.jpg");
+  background-size: cover;
 }
 
 /* begin header */
@@ -48,7 +50,6 @@ header {
   text-align: center;
   margin-right  : 3rem;
   padding-right: 5px;
-  border: 2px solid white;
   flex: 1;
 }
 h1 {
@@ -59,49 +60,57 @@ h2 {
   font-size: 26px;
   padding: 20px 20px;
 }
-.flex-item {
-  background: darkgrey;
-}
-/* End header */
-
-/* Main Section */
 main {
   width:90%;
   margin: auto;
-  margin-top: 5rem;
+  margin-top: 3rem;
+}
+
+.flexWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 300px;
+  text-align: center;
+  border: 2px solid black;
+  background-color: rgba(255, 255, 255, .8);
+  box-shadow: 5px 3px 20px 2px rgba(68, 8, 10, 1);
 }
 
 /* Player Instructions */
 .message-block {
-  width: 100%;
+  width: 50%;
   padding: 30px;
   margin: auto;
   text-align: center;
-  border: 2px solid black;
-}
+  flex: 5;
+ }
 
 .game-area {
-  margin-top: 4rem;
-  min-height: 600px;
+  margin: 20px auto;
+  min-height: 200px;
   text-align: center;
+  border: 2px solid black;
+  background-color: rgba(255, 255, 255, .8);
+  box-shadow: 5px 3px 20px 2px rgba(68, 8, 10, 1);
+  width: 50%;
 }
-.side-already,
-.game-center,
-.side-remaining {
-  min-height: 350px;
-  margin: 2rem;
-  padding: 5px;
-}
+
 .game-center {
-  flex: 5;
-}
+  margin: 0 20px 30px 20px;
+  padding: 5px;
+} 
+
 .side-already,
 .side-remaining {
   flex: 1;
-}
+  text-align: center;
+ }
+
 #guess-word {
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 30px;
 }
 

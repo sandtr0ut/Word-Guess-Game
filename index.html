@@ -5,7 +5,7 @@
   <title>Word Guess Game</title>
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  
+
 </head>
 
 <body>
@@ -16,16 +16,16 @@
         <div class="flex-container about">
           <!-- (create title, set id=gameTitle so can be hidden onStart) -->
           <div id="title-block" class="flex-item title">
-            <h1 id="game-title">Word Guess Game v1.0</h1><br>
+            <h1 id="game-title">Word Guess Game v1.0</h1>
             <h2>Developed by Ford Crosby
-              </h2>          
+            </h2>
           </div>
           <!-- (1. create, set id=scoreBoard so can appear onStart) -->
           <!-- (2. create, set id=plyrWins so can update score) -->
           <div class="flex-item scoreBoard">
-            <h2>PLAYER WINS: </h2><br>
-              <h2 id="player-wins">0</h2>
-          </div>          
+            <h2>PLAYER WINS: </h2>
+            <h2 id="player-wins">0</h2>
+          </div>
         </div>
       </div>
     </div>
@@ -33,32 +33,32 @@
 
   <main class="container">
     <!-- create greeting & set id so js can hide the message onStart and create dynamic msg ("Got one!" or "Ooof sorry - no dice." -->
-    <div class="wrapper">
-      <div class="message-block">
-        <h2 id="welcome-msg">Welcome - Press Any Key to Get Started!</h2><br>
-        <h2 id="add-msg"></h2>
-      </div>
-    </div>
-    
-    <div class="flex-container game-area">
+    <div class="flexWrapper flex-container">
       <div class="flex-item side-already">
         <!-- Create dynamic letters-guessed list -->
         <h2>Letters Already Guessed: </h2>
         <hr>
-        <h2 id="guessed-already"><N> </N>None Yet</h2>
+        <h2 id="guessed-already">
+          <N> </N>None Yet
+        </h2>
       </div>
-      <!-- create placeholder for the word to be guessed & assign id so js can display onStart/ hide onFinish -->
-      <div class="flex-item game-center">
-          <h1 id="guess-word">???</h1>
+      <div class="message-block">
+        <h2 id="welcome-msg">Welcome - Press Any Key to Get Started!</h2><br>
+        <h2 id="add-msg"></h2>
       </div>
-      
       <div class="flex-item side-remaining">
         <h2>Guesses Remaining: </h2>
         <hr>
         <h2 id="guesses-remaining">?</h2>
       </div>
     </div>
-
+    
+    <div class="game-area">
+      <div class="game-center">
+        <h1 id="guess-word">???</h1>
+      </div>
+    </div>
+    
   </main>
   <footer>
 

@@ -5,36 +5,7 @@ window.onload = function() {
 
 // create an array full of words [words = words]
 var words = [
-  "appetizer",
-  "apple pie",
-  "bake",
-  "baked Alaska",
-  "baking soda",
-  "banana split",
-  "basil",
-  "beef",
-  "BLT",
-  "Bundt pan",
-  "cheese",
-  "corn",
-  "crepe",
-  "doughnuts",
-  "egg nog",
-  "fork",
-  "freeze",
-  "fruit salad",
-  "grape",
-  "KFC",
-  "lemon zester",
-  "mac and cheese",
-  "McDonalds",
-  "melt",
-  "muffin tin",
-  "pear",
-  "poach",
-  "potato chips",
-  "produce",
-  "rolling pin"
+  "boil", "boston", "clambake", "clams", "crab", "crabcakes", "crawfish", "harbor", "kingcrab", "lobster", "lobsterroll", "maine", "muscles", "pissa", "saltwater", "seafood", "tastycakes"
 ];
 
 
@@ -50,7 +21,6 @@ var alreadyGuessedText = document.getElementById("guessed-already");
 var guessesRemainingCount = document.getElementById("guesses-remaining");
 
 //other global variables
-// var wordLetters;
 var word = ""; // -the word-in-play (empty string until game starts)
 var wordLetters = []; // -array to be filled with the letters in 'word'
 var matchedLetters = []; //  guessed letters that match letters in word
@@ -224,9 +194,14 @@ function updateWins() {
     
     // and update the page
     playerWinsCount.innerHTML = playerWins;
+    guessWordText.innerHTML = word;
+    changeMsgText.innerHTML = "YOU WIN!   FORTUNE SMILES UPON YOU!   PLAY AGAIN!";
+   
+    alert("the word was " + word)
     
     // ...and alert player of his/her success
-    alert("YOU WIN! FORTUNE SMILES UPON YOU! AGAIN! AGAIN!");
+   
+    // alert("PLAY AGAIN?");
     
     // return true (triggers updatePage() function which
     // triggers restartGame() function)
